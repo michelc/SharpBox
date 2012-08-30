@@ -1,8 +1,22 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Accueil";
 }
 
 <h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+
+@if (ViewBag.OK)
+{
+    <p>
+        Les informations de configuration à l'API de Dropbox sont correctement
+        enregistrées.
+        Vous pouvez tester l'application.
+    </p>
+}
+else
+{
+    <p>
+        Les informations de configuration à l'API de Dropbox ne sont pas
+        encore enregistrées.
+        Vous devez @Html.ActionLink("paramétrer l'application", "Create").
+    </p>
+}
